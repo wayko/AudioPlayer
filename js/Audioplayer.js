@@ -2,8 +2,9 @@
  
  	var currentSong;
  	var idnum;
- 	var genre;
- 	var myCirclePlayer
+ 	var genrename;
+ 	var myCirclePlayer;
+	var tags;
 
  	
  	var jsl = new Array();
@@ -18,13 +19,15 @@
  var ssl = new Array();
  	ssl[0] = "Audio/preciosa.mp3";
       	ssl[1] = "Audio/ElComejen.mp3";
-
-
-
-
 var rjs = Math.ceil(Math.random() * jsl.length) - 1;
 var rks = Math.ceil(Math.random() * ksl.length) - 1;
 var rss = Math.ceil(Math.random() * ssl.length) - 1;
+
+
+ID3.loadTags("Audio/attackontitan.mp3", function(){
+tags = ID3.getAllTags("Audio/attackontitan.mp3");
+alert(tags.artist + " - " + tags.title + ", " + tags.album);
+});
 
 
 var getli = document.getElementsByTagName("li");
@@ -36,9 +39,9 @@ $(getli).css("cursor", "pointer");
  $(getli).click( function(){
 $(getli).css("cursor", "wait");
  $("#jquery_jplayer_1").jPlayer("destroy");
- genre = this.className;
+ genrename = this.className;
  idnum = this.id;
-
+alert(genre);
  if(genre == "jmheader")
 	{
 		$(".japanese").animate({
