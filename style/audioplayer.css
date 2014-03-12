@@ -1,0 +1,13 @@
+.wrapper{
+width: 960px;
+margin: 0 auto;
+}
+.headers{
+display: inline-block;
+}
+li{
+list-style-type: none;
+}
+li:hover{
+cursor: pointer;
+}

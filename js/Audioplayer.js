@@ -28,18 +28,39 @@ var rss = Math.ceil(Math.random() * ssl.length) - 1;
 
 
 var getli = document.getElementsByTagName("li");
-
+$(getli).hover(function(){
+$(getli).css("cursor", "pointer");
+});
 
 
  $(getli).click( function(){
-
+$(getli).css("cursor", "wait");
  $("#jquery_jplayer_1").jPlayer("destroy");
  genre = this.className;
  idnum = this.id;
 
- if (genre == "japanese")
+ if(genre == "jmheader")
+	{
+		$(".japanese").animate({
+			height: "toggle"
+		}, 500)
+	}
+else if (genre == "kmheader")
+	{
+		$(".korean").animate({
+			height: "toggle"
+		}, 500)
+	}
+else if (genre == "smheader")
+	{
+		$(".spanish").animate({
+			height: "toggle"
+		}, 500)
+	}
+	
+else if (genre == "japanese")
  	{
- 
+	
  	if(idnum == "rjs")
  		{
  			currentSong = jsl[rss];
@@ -91,25 +112,5 @@ else if (genre == "spanish")
                 supplied: "mp3"
               }); 
   	
-});
-
-$(".jmheader").click(function(){
-	
-		$(".japanese").animate({
-			height: "toggle"
-		}, 500)
-	});
-$(".smheader").click(function(){
-	
-		$(".spanish").animate({
-			height: "toggle"
-		}, 500)
-	});
-$(".kmheader").click(function(){
-	
-		$(".korean").animate({
-			height: "toggle"
-		}, 500)
-	});
-
+ });
 });
