@@ -24,9 +24,9 @@ var rks = Math.ceil(Math.random() * ksl.length) - 1;
 var rss = Math.ceil(Math.random() * ssl.length) - 1;
 
 
-ID3.loadTags("Audio/attackontitan.mp3", function(){
-tags = ID3.getAllTags("Audio/attackontitan.mp3");
-alert(tags.artist + " - " + tags.title + ", " + tags.album);
+ID3.loadTags(jsl[rjs], function(){
+tags = ID3.getAllTags(jsl[rjs]);
+alert(tags.artist + " - " + tags.title + ", " + tags.album + ", " + tags.genre);
 });
 
 
@@ -39,9 +39,9 @@ $(getli).css("cursor", "pointer");
  $(getli).click( function(){
 $(getli).css("cursor", "wait");
  $("#jquery_jplayer_1").jPlayer("destroy");
- genrename = this.className;
+ 
  idnum = this.id;
-alert(genre);
+
  if(genre == "jmheader")
 	{
 		$(".japanese").animate({
