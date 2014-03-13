@@ -26,9 +26,10 @@
      */
     //sample.mp3 sits on your domain
     ID3.loadTags("Audio/attackontitan.mp3", function() {
-     tags = ID3.getAllTags(jsl[rjs]);
-alert(tags.artist + " - " + tags.title + ", " + tags.album + ", " + tags.genre);
-    });
+      showTags("Audio/attackontitan.mp3");
+    }, {
+      tags: ["title","artist","album","genre","picture"]
+	  });
 
     /**
      * Loading the tags using the FileAPI.

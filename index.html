@@ -5,6 +5,7 @@
 <title>Audio Player</title>
 <link rel="stylesheet" type="text/css" href="style/audioplayer.css">
 
+
 </head>
 <body>
 <div class="wrapper">
@@ -12,11 +13,18 @@
 
 <div class="musiclist">
 <ul class="headers">
-<li class="jmheader">Japanese Music</li>
+<li class="jmheader">Anime Music</li>
 <ul>
-<li class="japanese" id="0">Attack On Titan</li>
-<li class="japanese" id="1">Dancing Moon(Vampire to Rosario)</li>
-<li class="japanese" id="rjs">Random Japanese Song</li>
+<li class="anime" id="0">Attack On Titan</li>
+<li class="anime" id="1">Dancing Moon(Vampire to Rosario)</li>
+<li class="anime" id="2">Ame Agari</li>
+<li class="anime" id="3">Ready Steady Go!</li>
+<li class="anime" id="4">Kaleido Star Opening Song</li>
+<li class="anime" id="5">Kaleido Star Ending Song</li>
+<li class="anime" id="6">Trigun Fuku</li>
+<li class="anime" id="7">Be My Angel</li>
+<li class="anime" id="8">Ballad of Ranma & Akane</li>
+<li class="anime" id="rjs">Random Japanese Song</li>
 </ul>
 </ul>
 <ul class="headers">
@@ -37,6 +45,38 @@
 </ul>
 
 </div>
+ <div>
+    <input type="file" id="file" onchange="loadFile(this)">
+    <p><b>Title:</b> <span id="title"></span></p>
+    <p><b>Artist:</b> <span id="artist"></span></p>
+    <p><b>Album:</b> <span id="album"></span></p>
+	 <p><b>Genre:</b> <span id="genre"></span></p>
+    <img id="picture" src="" alt= "picture extracted from ID3" />
+<script>
+    function loadFile(input) {
+      var file = input.files[0],
+        url = file.urn || file.name;
+
+      ID3.loadTags(url, function() {
+        showTags(url);
+      }, {
+        tags: ["title","artist","album","genre","picture"],
+        dataReader: FileAPIReader(file)
+      });
+    }
+	
+	function showTags(url) {
+      tags = ID3.getAllTags(url);
+      console.log(tags);
+	  genrename=tags.genre;
+	  document.getElementById('title').textContent = tags.title || "";
+      document.getElementById('artist').textContent = tags.artist || "";
+      document.getElementById('album').textContent = tags.album || "";
+	  document.getElementById('genre').textContent = tags.genre || "";
+    }
+	</script>
+  </div>
+  
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
