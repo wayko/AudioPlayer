@@ -52,7 +52,7 @@ $(getli).css("cursor", "wait");
  $("#jquery_jplayer_1").jPlayer("destroy");
   idnum = this.id;
   liclass = $(this).attr('class');
-  alert(rjs);
+ 
  
  if(liclass == "jmheader")
 	{
@@ -113,7 +113,7 @@ else if (liclass == "spanish")
  		}
 
 	}
-   alert(currentSong);
+   
   /**
      * Loading the tags using XHR.
      */

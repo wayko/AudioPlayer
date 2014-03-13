@@ -68,7 +68,7 @@
 	function showTags(url) {
       tags = ID3.getAllTags(url);
       console.log(tags);
-	  genrename=tags.genre;
+	  document.getElementById('file').textContent = file.name || "";
 	  document.getElementById('title').textContent = tags.title || "";
       document.getElementById('artist').textContent = tags.artist || "";
       document.getElementById('album').textContent = tags.album || "";
